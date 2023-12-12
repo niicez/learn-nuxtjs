@@ -1,10 +1,14 @@
 <script setup lang="ts">
-const { data } = await useFetch('/api/hello')
+
+useHead({
+    title: 'Car Trader'
+})
+
 </script>
 
 <template>
     <div>
-        <p>{{ data }}</p>
-        <h1 class="text-center">Hello World!</h1>
+        <Navbar />
+        <CarHero />
     </div>
 </template>
