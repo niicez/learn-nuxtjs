@@ -3,21 +3,22 @@ const route = useRoute()
 
 const { city, make } = route.params
 
+definePageMeta({
+    layout: 'custom'
+})
+
 useHead({
-    title: `${make ? make : 'Cars'} in ${city}`
+    title: `${make ? toTitleCase(make.toString()) : 'Cars'} in ${toTitleCase(city.toString())}`
 })
 </script>
 
 <template>
     <div>
-        <Navbar />
-        <div class="mx-auto mt-4 max-w-7xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-3/5">
-            <div class="mt-32 flex">
-                <CarSidebar />
+        <div class="mt-32 flex">
+            <CarSidebar />
 
-                <div class="w-full">
-                    <NuxtPage />
-                </div>
+            <div class="w-full">
+                <NuxtPage />
             </div>
         </div>
     </div>
